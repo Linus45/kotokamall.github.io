@@ -1,0 +1,109 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f8f9fa;
+}
+
+.navbar {
+  background: linear-gradient(90deg, #4a90e2 0%, #add8e6 100%); /* Sea blue gradient */
+  padding: 1rem 0;
+}
+
+.navbar-logo {
+  height: 100px; /* Make the image large */
+  width: auto;
+  filter: brightness(1.1) saturate(1.2); /* Enhance vibrancy */
+}
+ 
+
+.nav-link {
+  color: white !important;
+  font-weight: 600;
+}
+ 
+.nav-link:hover {
+  color: #ffeb3b !important;
+}
+
+.hero-section {
+  height: 70vh; /* Similar height to Baby Bliss */
+  background: url('baby\ logo.jpeg') center/cover no-repeat; /* Use logo as background */
+  position: relative;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.7)); /* Dark gradient overlay */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-slogan {
+  color: white;
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow for readability */
+}
+
+.card {
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card-img-top {
+  height: 250px;
+  object-fit: cover;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.badge {
+  font-size: 1rem;
+  padding: 0.5em 1em;
+  }
+
+.btn-primary {
+  background-color: #4a90e2; /* Match sea blue theme */
+  border: none;
+  border-radius: 25px;
+  padding: 0.75rem 1.5rem;
+} 
+
+.btn-primary:hover {
+  background-color: #357abd; /* Darker sea blue for hover */
+}
+
+.section-bg {
+  background: linear-gradient(135deg, #add8e6 0%, #e6f0fa 100%); /* Lighter sea blue gradient */
+}
+
+.footer {
+  background: linear-gradient(90deg, #4a90e2 0%, #add8e6 100%); /* Sea blue gradient */
+}
+
+.whatsapp-btn {
+  background-color: #25D366;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.whatsapp-btn:hover {
+  background-color: #20b858;
+}

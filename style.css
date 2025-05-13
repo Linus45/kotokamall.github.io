@@ -1,0 +1,70 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f3e7ff 0%, #e0f7fa 100%);
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 0;
+}
+
+.logo-img {
+  max-width: 250px;
+  width: 100%;
+  margin-bottom: 1rem;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.welcome-text {
+  font-size: 1.2rem;
+  color: #555;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.link-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+.link-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #8adaff;
+  color: white;
+  padding: 1rem;
+  border-radius: 25px;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.link-button:hover {
+  background-color: #8adaff;
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.footer {
+  background: linear-gradient(90deg, #8adaff 0%, #a4d4ff 100%);
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}

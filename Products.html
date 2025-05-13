@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kotoka Shopping Mall - Baby Bliss</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="custom.css" />
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+      <a class="navbar-brand text-center" href="#">
+        <h1 class="logo-text">Kotoka Shopping Mall</h1>
+        <p class="tagline">Everything Baby, Delivered with Love</p>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#products">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="#testimonials">Reviews</a></li>
+          <li class="nav-item"><a class="nav-link" href="https://wa.me/233558377502">Contact</a></li>
+        </ul>
+        <form class="d-flex ms-3">
+          <input class="form-control me-2 search-input" type="search" id="productSearch" placeholder="Search products..." aria-label="Search">
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero-section">
+    <div class="hero-overlay">
+      <div class="container text-center">
+        <p class="hero-slogan">Everything Baby, Delivered with Love</p>
+        <a href="#products" class="btn btn-primary mt-3">Shop Now</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Product Section -->
+  <section class="py-5" id="products">
+    <div class="container">
+      <h2 class="text-center mb-5 fw-bold">Our Baby Clothing Collection</h2>
+      <div class="text-center mb-4">
+        <div class="btn-group" role="group" aria-label="Product filters">
+          <button type="button" class="btn btn-outline-primary filter-btn" data-filter="all">All</button>
+          <button type="button" class="btn btn-outline-primary filter-btn" data-filter="clothing">Clothing</button>
+          <button type="button" class="btn btn-outline-primary filter-btn" data-filter="accessories">Accessories</button>
+          <button type="button" class="btn btn-outline-primary filter-btn" data-filter="safety">Safety</button>
+        </div>
+      </div>
+      <div class="row g-4" id="productGrid">
+        <!-- Bodysuits / Onesies -->
+        <div class="col-md-4 col-lg-3 product-item" data-category="clothing">
+          <div class="card h-100">
+            <img src="Bodysuits.jpeg" class="card-img-top" alt="Bodysuits / Onesies" loading="lazy">
+            <div class="card-body">
+              <h5 class="card-title">Bodysuits / Onesies</h5>
+              <p class="card-text">Soft and comfy bodysuits for your baby’s everyday adventures.</p>
+              <span class="badge bg-success">GHS 50</span>
+              <span class="badge bg-info ms-2">In Stock</span><br>
+              <select class="form-select mb-2" id="size-bodysuits">
+                <option value="0-3 months">0-3 months</option>
+                <option value="3-6 months">3-6 months</option>
+                <option value="6-12 months">6-12 months</option>
+                <option value="12-24 months">12-24 months</option>
+              </select>
+              <a href="https://wa.me/233558377502?text=I'm%20interested%20in%20the%20Bodysuits%20/%20Onesies" class="btn btn-primary mt-2" id="order-bodysuits">Order via WhatsApp</a>
+            </div>
+          </div>
+        </div>
+        <!-- Sleepers / Rompers -->
+        <div class="col-md-4 col-lg-3 product-item" data-category="clothing">
+          <div class="card h-100">
+            <img src="Sleepers-Rompers.jpeg" class="card-img-top" alt="Sleepers / Rompers" loading="lazy">
+            <div class="card-body">
+              <h5 class="card-title">Sleepers / Rompers</h5>
+              <p class="card-text">Cozy sleepers to keep your baby snug all night.</p>
+              <span class="badge bg-success">GHS 55</span>
+              <span class="badge bg-warning ms-2">Low Stock</span><br>
+              <select class="form-select mb-2" id="size-sleepers">
+                <option value="0-3 months">0-3 months</option>
+                <option value="3-6 months">3-6 months</option>
+                <option value="6-12 months">6-12 months</option>
+                <option value="12-24 months">12-24 months</option>
+              </select>
+              <a href="https://wa.me/233558377502?text=I'm%20interested%20in%20the%20Sleepers%20/%20Rompers" class="btn btn-primary mt-2" id="order-sleepers">Order via WhatsApp</a>
+            </div>
+          </div>
+        </div>
+        <!-- Knee Pad -->
+        <div class="col-md-4 col-lg-3 product-item" data-category="safety">
+          <div class="card h-100">
+            <img src="Baby knee pad.jpeg" class="card-img-top" alt="Knee Pad" loading="lazy">
+            <div class="card-body">
+              <h5 class="card-title">Knee Pad</h5>
+              <p class="card-text">Protective knee pads for safe crawling and playtime.</p>
+              <span class="badge bg-success">GHS 40</span>
+              <span class="badge bg-info ms-2">In Stock</span><br>
+              <select class="form-select mb-2" id="size-kneepad">
+                <option value="0-3 months">0-3 months</option>
+                <option value="3-6 months">3-6 months</option>
+                <option value="6-12 months">6-12 months</option>
+                <option value="12-24 months">12-24 months</option>
+              </select>
+              <a href="https://wa.me/233558377502?text=I'm%20interested%20in%20the%20Knee%20Pad" class="btn btn-primary mt-2" id="order-kneepad">Order via WhatsApp</a>
+            </div>
+          </div>
+        </div>
+        <!-- Pants / Leggings -->
+        <div class="col-md-4 col-lg-3 product-item" data-category="clothing">
+          <div class="card h-100">
+            <img src="Pants-Leggins.jpeg" class="card-img-top" alt="Pants / Leggings" loading="lazy">
+            <div class="card-body">
+              <h5 class="card-title">Pants / Leggings</h5>
+              <p class="card-text">Comfy pants and leggings for all-day play.</p>
+              <span class="badge bg-success">GHS 45</span>
+              <span class="badge bg-info ms-2">In Stock</span><br>
+              <select class="form-select mb-2" id="size-pants">
+                <option value="0-3 months">0-3 months</option>
+                <option value="3-6 months">3-6 months</option>
+                <option value="6-12 months">6-12 months</option>
+                <option value="12-24 months">12-24 months</option>
+              </select>
+              <a href="https://wa.me/233558377502?text=I'm%20interested%20in%20the%20Pants%20/%20Leggings" class="btn btn-primary mt-2" id="order-pants">Order via WhatsApp</a>
+            </div>
+          </div>
+        </div>
+        <!-- Dresses & Skirts -->
+        <div class="col-md-4 col-lg-3 product-item" data-category="clothing">
+          <div class="card h-100">
+            <img src="Dresses & Skirts.jpeg" class="card-img-top" alt="Dresses & Skirts" loading="lazy">
+            <div class="card-body">
+              <h5 class="card-title">Dresses & Skirts</h5>
+              <p class="card-text">Adorable dresses for your little princess.</p>
+              <span class="badge bg-success">GHS 65</span>
+              <span class="badge bg-info ms-2">In Stock</span><br>
+              <select class="form-select mb-2" id="size-dresses">
+                <option value="0-3 months">0-3 months</option>
+                <option value="3-6 months">3-6 months</option>
+                <option value="6-12 months">6-12 months</option>
+                <option value="12-24 months">12-24 months</option>
+              </select>
+              <a href="https://wa.me/233558377502?text=I'm%20interested%20in%20the%20Dresses%20&%20Skirts" class="btn btn-primary mt-2" id="order-dresses">Order via WhatsApp</a>
+            </div>
+          </div>
+        </div>
+        <!-- Footed Pants -->
+        <div class="col-md-4 col-lg-3 product-item" data-category="clothing">
+          <div class="card h-100">
+            <img src="Footed Pants.jpeg" class="card-img-top" alt="Footed Pants" loading="lazy">
+            <div class="card-body">
+              <h5 class="card-title">Footed Pants</h5>
+              <p class="card-text">Warm and cozy footed pants for tiny toes.</p>
+              <span class="badge bg-success">GHS 50</span>
+              <span class="badge bg-info ms-2">In Stock</span><br>
+              <select class="form-select mb-2" id="size-footedpants">
+                <option value="0-3 months">0-3 months</option>
+                <option value="3-6 months">3-6 months</option>
+                <option value="6-12 months">6-12 months</option>
+                <option value="12-24 months">12-24 months</option>
+              </select>
+              <a href="https://wa.me/233558377502?text=I'm%20interested%20in%20the%20Footed%20Pants" class="btn btn-primary mt-2" id="order-footedpants">Order via WhatsApp</a>
+            </div>
+          </div>
+        </div>
+        <!-- Jackets & Hoodies -->
+        <div class="col-md-4 col-lg-3 product-item" data-category="clothing">
+          <div class="card h-100">
+            <img src="Jacket & Hoddies.jpeg" class="card-img-top" alt="Jackets & Hoodies" loading="lazy">
+            <div class="card-body">
+              <h5 class="card-title">Jackets & Hoodies</h5>
+              <p class="card-text">Stylish outerwear to keep your baby warm.</p>
+              <span class="badge bg-success">GHS 70</span>
+              <span class="badge bg-warning ms-2">Low Stock</span><br>
+              <select class="form-select mb-2" id="size-jackets">
+                <option value="0-3 months">0-3 months</option>
+                <option value="3-6 months">3-6 months</option>
+                <option value="6-12 months">6-12 months</option>
+                <option value="12-24 months">12-24 months</option>
+              </select>
+              <a href="https://wa.me/233558377502?text=I'm%20interested%20in%20the%20Jackets%20&%20Hoodies" class="btn btn-primary mt-2" id="order-jackets">Order via WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      
+        
+        <!-- Motion Light -->
+        <div class="col-md-4 col-lg-3 product-item" data-category="safety">
+          <div class="card h-100">
+            <img src="motion light.jpeg" class="card-img-top" alt="Motion Light" loading="lazy">
+            <div class="card-body">
+              <h5 class="card-title">Motion Light</h5>
+              <p class="card-text">Soft-glow motion light for safe nighttime movement.</p>
+              <span class="badge bg-success">GHS 65</span>
+              <span class="badge bg-info ms-2">In Stock</span><br>
+              
+              <a href="https://wa.me/233558377502?text=I'm%20interested%20in%20the%20Motion%20Light" class="btn btn-primary mt-2" id="order-motionlight">Order via WhatsApp</a>
+            </div>
+          </div>
+        </div>
+        <!-- Hats & Caps -->
+        <div class="col-md-4 col-lg-3 product-item" data-category="accessories">
+          <div class="card h-100">
+            <img src="Hats.jpeg" class="card-img-top" alt="Hats & Caps" loading="lazy">
+            <div class="card-body">
+              <h5 class="card-title">Hats & Caps</h5>
+              <p class="card-text">Cute hats to keep your baby stylish.</p>
+              <span class="badge bg-success">GHS 30</span>
+              <span class="badge bg-info ms-2">In Stock</span><br>
+              <select class="form-select mb-2" id="size-hats">
+                <option value="0-3 months">0-3 months</option>
+                <option value="3-6 months">3-6 months</option>
+                <option value="6-12 months">6-12 months</option>
+                <option value="12-24 months">12-24 months</option>
+              </select>
+              <a href="https://wa.me/233558377502?text=I'm%20interested%20in%20the%20Hats%20&%20Caps" class="btn btn-primary mt-2" id="order-hats">Order via WhatsApp</a>
+            </div>
+          </div>
+        </div>
+        <!-- Socks & Booties -->
+        <div class="col-md-4 col-lg-3 product-item" data-category="accessories">
+          <div class="card h-100">
+            <img src="socks.jpeg" class="card-img-top" alt="Socks & Booties" loading="lazy">
+            <div class="card-body">
+              <h5 class="card-title">Socks & Booties</h5>
+              <p class="card-text">Warm socks and booties for tiny feet.</p>
+              <span class="badge bg-success">GHS 25</span>
+              <span class="badge bg-info ms-2">In Stock</span><br>
+              <select class="form-select mb-2" id="size-socks">
+                <option value="0-3 months">0-3 months</option>
+                <option value="3-6 months">3-6 months</option>
+                <option value="6-12 months">6-12 months</option>
+                <option value="12-24 months">12-24 months</option>
+              </select>
+              <a href="https://wa.me/233558377502?text=I'm%20interested%20in%20the%20Socks%20&%20Booties" class="btn btn-primary mt-2" id="order-socks">Order via WhatsApp</a>
+            </div>
+          </div>
+        </div>
+        <!-- Baby Helmet -->
+        <div class="col-md-4 col-lg-3 product-item" data-category="safety">
+          <div class="card h-100">
+            <img src="Baby Helmet.jpeg" class="card-img-top" alt="Baby Helmet" loading="lazy">
+            <div class="card-body">
+              <h5 class="card-title">Baby Helmet</h5>
+              <p class="card-text">Protective helmets for your baby’s safety and comfort.</p>
+              <span class="badge bg-success">GHS 65</span>
+              <span class="badge bg-info ms-2">In Stock</span><br>
+              <select class="form-select mb-2" id="size-helmet">
+                <option value="0-3 months">0-3 months</option>
+                <option value="3-6 months">3-6 months</option>
+                <option value="6-12 months">6-12 months</option>
+                <option value="12-24 months">12-24 months</option>
+              </select>
+              <a href="https://wa.me/233558377502?text=I'm%20interested%20in%20the%20Baby%20Helmet" class="btn btn-primary mt-2" id="order-helmet">Order via WhatsApp</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section-bg py-5" id="about">
+    <div class="container">
+      <h3 class="text-center mb-4 fw-bold">About Us</h3>
+      <p class="text-center lead">
+        Kotoka Shopping Mall is your trusted store for high-quality and affordable baby clothes. 
+        We understand the joy and care that comes with raising a baby — that’s why our store offers only the best items for your little ones.
+        Our goal is to help every parent make baby shopping simple, safe, and sweet.
+      </p>
+    </div>
+  </section>
+
+  <!-- Customer Testimonials -->
+  <section class="py-5" id="testimonials">
+    <div class="container">
+      <h3 class="text-center mb-4 fw-bold">What Our Customers Say</h3>
+      <div class="row text-center">
+        <div class="col-md-4">
+          <div class="border p-4 rounded shadow-sm">
+            <p>“The bodysuits were amazing and fit perfectly. My baby loves them!”</p>
+            <span class="text-muted">- Ama from Accra</span>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="border p-4 rounded shadow-sm">
+            <p>“I love shopping with Kotoka Mall. Fast delivery and great prices!”</p>
+            <span class="text-muted">- Kwesi from Takoradi</span>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="border p-4 rounded shadow-sm">
+            <p>“The dresses were so adorable and really comfortable for my baby.”</p>
+            <span class="text-muted">- Abena from Kumasi</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/233558377502" class="btn whatsapp-btn position-fixed bottom-0 end-0 m-4 rounded-circle" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Back to Top Button -->
+  <button id="backToTop" class="btn position-fixed bottom-0 end-0 m-4 rounded-circle" style="display: none;">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Footer -->
+  <footer class="footer text-white py-4" id="contact">
+    <div class="container text-center">
+      <h5 class="fw-bold">Kotoka Shopping Mall</h5>
+      <p>Address: Accra, Ghana</p>
+      <p>Phone: +233 558377502 | Email: info@kotokamall.com</p>
+      <p>Thank you for shopping with us. Stay connected!</p>
+      <div class="social-links">
+        <a href="https://facebook.com" target="_blank" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+        <a href="https://instagram.com" target="_blank" class="text-white me-3"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/233558377502" target="_blank" class="text-white"><i class="fab fa-whatsapp"></i></a>
+      </div>
+      <p class="mt-3">© 2025 Kotoka Shopping Mall. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script>
+    // Search Functionality
+    document.getElementById('productSearch').addEventListener('input', function(e) {
+      const searchTerm = e.target.value.toLowerCase();
+      const products = document.querySelectorAll('.product-item');
+      products.forEach(product => {
+        const title = product.querySelector('.card-title').textContent.toLowerCase();
+        const description = product.querySelector('.card-text').textContent.toLowerCase();
+        if (title.includes(searchTerm) || description.includes(searchTerm)) {
+          product.style.display = 'block';
+        } else {
+          product.style.display = 'none';
+        }
+      });
+    });
+
+    // Filter Functionality
+    document.querySelectorAll('.filter-btn').forEach(button => {
+      button.addEventListener('click', function() {
+        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+        this.classList.add('active');
+        const filter = this.getAttribute('data-filter');
+        const products = document.querySelectorAll('.product-item');
+        products.forEach(product => {
+          const category = product.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            product.style.display = 'block';
+          } else {
+            product.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Back to Top Button
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTop.style.display = 'block';
+      } else {
+        backToTop.style.display = 'none';
+      }
+    });
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Size Selection for WhatsApp Orders
+    document.querySelectorAll('select').forEach(select => {
+      const productId = select.id.replace('size-', 'order-');
+      const orderLink = document.getElementById(productId);
+      select.addEventListener('change', function() {
+        const size = this.value;
+        const baseText = orderLink.href.split('text=')[1];
+        orderLink.href = `https://wa.me/233558377502?text=${encodeURIComponent(baseText + `, Size: ${size}`)}`;
+      });
+    });
+  </script>
+</body>
+</html>
