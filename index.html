@@ -22,8 +22,7 @@
         <p class="tagline">Everything Baby, Delivered with Love</p>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggl
-er-icon"></span>
+        <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
@@ -225,24 +224,53 @@ er-icon"></span>
               <h4 id="modalProductName"></h4>
               <p id="modalProductPrice"></p>
               <p id="modalProductDescription"></p>
-              <div class="mb-3">
-                <label for="modalSizeSelect" class="form-label">Size:</label>
-                <select class="form-select" id="modalSizeSelect">
-                  <option value="0-3 months">0-3 months</option>
-                  <option value="3-6 months">3-6 months</option>
-                  <option value="6-12 months">6-12 months</option>
-                  <option value="12-24 months">12-24 months</option>
-                </select>
-              </div>
-              <div class="quantity-selector mb-3">
-                <label for="quantity" class="form-label">Quantity:</label>
-                <div class="input-group w-50">
-                  <button class="btn btn-outline-secondary" type="button" id="decreaseQty">-</button>
-                  <input type="number" class="form-control text-center" id="quantity" value="1" min="1">
-                  <button class="btn btn-outline-secondary" type="button" id="increaseQty">+</button>
+              <form id="orderForm" class="needs-validation" novalidate>
+                <div class="mb-3">
+                  <label for="customerName" class="form-label">Name</label>
+                  <input type="text" class="form-control" id="customerName" placeholder="Enter your name" required>
+                  <div class="invalid-feedback">Please enter your name.</div>
                 </div>
-              </div>
-              <a href="https://wa.me/233558377502" class="btn btn-primary" id="addToCart">Order via WhatsApp</a>
+                <div class="mb-3">
+                  <label for="customerPhone" class="form-label">Telephone Number</label>
+                  <input type="tel" class="form-control" id="customerPhone" placeholder="e.g., +233123456789" pattern="\+233[0-9]{9}" required>
+                  <div class="invalid-feedback">Please enter a valid phone number (e.g., +233123456789).</div>
+                </div>
+                <div class="mb-3">
+                  <label for="customerLocation" class="form-label">Location</label>
+                  <select class="form-select" id="customerLocation" required>
+                    <option value="" disabled selected>Select your location</option>
+                    <option value="Accra">Accra</option>
+                    <option value="Kumasi">Kumasi</option>
+                    <option value="Takoradi">Takoradi</option>
+                    <option value="Tamale">Tamale</option>
+                    <option value="Other">Other (specify in message)</option>
+                  </select>
+                  <div class="invalid-feedback">Please select a location.</div>
+                </div>
+                <div class="mb-3">
+                  <label for="modalSizeSelect" class="form-label">Size</label>
+                  <select class="form-select" id="modalSizeSelect">
+                    <option value="0-3 months">0-3 months</option>
+                    <option value="3-6 months">3-6 months</option>
+                    <option value="6-12 months">6-12 months</option>
+                    <option value="12-24 months">12-24 months</option>
+                  </select>
+                </div>
+                <div class="quantity-selector mb-3">
+                  <label for="quantity" class="form-label">Quantity</label>
+                  <div class="input-group w-50">
+                    <button class="btn btn-outline-secondary" type="button" id="decreaseQty">-</button>
+                    <input type="number" class="form-control text-center" id="quantity" value="1" min="1" required>
+                    <button class="btn btn-outline-secondary" type="button" id="increaseQty">+</button>
+                    <div class="invalid-feedback">Please enter a valid quantity.</div>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <p class="fw-bold">Order Preview:</p>
+                  <p id="orderPreview" class="text-muted">Fill out the form to see your order details.</p>
+                </div>
+                <button type="submit" class="btn btn-primary" id="addToCart">Confirm Order</button>
+              </form>
             </div>
           </div>
         </div>
@@ -365,58 +393,105 @@ er-icon"></span>
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // Modal and Quantity Selector Functionality
+    // Modal and Form Functionality
     document.addEventListener('DOMContentLoaded', () => {
       const viewProductButtons = document.querySelectorAll('.view-product');
       const modalImage = document.getElementById('modalProductImage');
       const modalName = document.getElementById('modalProductName');
       const modalPrice = document.getElementById('modalProductPrice');
       const modalDescription = document.getElementById('modalProductDescription');
+      const orderForm = document.getElementById('orderForm');
+      const customerName = document.getElementById('customerName');
+      const customerPhone = document.getElementById('customerPhone');
+      const customerLocation = document.getElementById('customerLocation');
       const modalSizeSelect = document.getElementById('modalSizeSelect');
-      const addToCartBtn = document.getElementById('addToCart');
       const quantityInput = document.getElementById('quantity');
       const decreaseQtyBtn = document.getElementById('decreaseQty');
       const increaseQtyBtn = document.getElementById('increaseQty');
+      const addToCartBtn = document.getElementById('addToCart');
+      const orderPreview = document.getElementById('orderPreview');
+
+      let currentProduct = null;
 
       viewProductButtons.forEach(button => {
         button.addEventListener('click', () => {
-          const product = JSON.parse(button.getAttribute('data-product'));
-          modalImage.src = product.image;
-          modalName.textContent = product.name;
-          modalPrice.textContent = `GHS ${product.price}`;
-          modalDescription.textContent = product.description;
-          modalSizeSelect.value = '0-3 months'; // Default size
-          quantityInput.value = 1; // Default quantity
-          updateCartLink(product.name, modalSizeSelect.value, quantityInput.value);
+          currentProduct = JSON.parse(button.getAttribute('data-product'));
+          modalImage.src = currentProduct.image;
+          modalName.textContent = currentProduct.name;
+          modalPrice.textContent = `GHS ${currentProduct.price}`;
+          modalDescription.textContent = currentProduct.description;
+          customerName.value = '';
+          customerPhone.value = '';
+          customerLocation.value = '';
+          modalSizeSelect.value = '0-3 months';
+          quantityInput.value = 1;
+          orderForm.classList.remove('was-validated');
+          orderPreview.textContent = 'Fill out the form to see your order details.';
         });
       });
 
-      modalSizeSelect.addEventListener('change', () => {
-        updateCartLink(modalName.textContent, modalSizeSelect.value, quantityInput.value);
-      });
+      function updateOrderPreview() {
+        const name = customerName.value.trim();
+        const phone = customerPhone.value.trim();
+        const location = customerLocation.value;
+        const size = modalSizeSelect.value;
+        const quantity = quantityInput.value;
+        if (name && phone && location) {
+          orderPreview.textContent = `You're ordering ${quantity} ${currentProduct.name}, Size: ${size}, for ${name}, ${location}.`;
+        } else {
+          orderPreview.textContent = 'Fill out the form to see your order details.';
+        }
+      }
 
+      function updateWhatsAppLink() {
+        const name = customerName.value.trim();
+        const phone = customerPhone.value.trim();
+        const location = customerLocation.value;
+        const size = modalSizeSelect.value;
+        const quantity = quantityInput.value;
+        if (name && phone && location) {
+          addToCartBtn.href = `https://wa.me/233558377502?text=Order%20Details:%0AProduct:%20${encodeURIComponent(currentProduct.name)}%0ASize:%20${encodeURIComponent(size)}%0AQuantity:%20${quantity}%0AName:%20${encodeURIComponent(name)}%0APhone:%20${encodeURIComponent(phone)}%0ALocation:%20${encodeURIComponent(location)}`;
+        } else {
+          addToCartBtn.href = '#';
+        }
+      }
+
+      customerName.addEventListener('input', updateOrderPreview);
+      customerPhone.addEventListener('input', updateOrderPreview);
+      customerLocation.addEventListener('change', updateOrderPreview);
+      modalSizeSelect.addEventListener('change', () => {
+        updateOrderPreview();
+        updateWhatsAppLink();
+      });
       decreaseQtyBtn.addEventListener('click', () => {
         let qty = parseInt(quantityInput.value);
         if (qty > 1) {
           quantityInput.value = qty - 1;
-          updateCartLink(modalName.textContent, modalSizeSelect.value, quantityInput.value);
+          updateOrderPreview();
+          updateWhatsAppLink();
         }
       });
-
       increaseQtyBtn.addEventListener('click', () => {
         let qty = parseInt(quantityInput.value);
         quantityInput.value = qty + 1;
-        updateCartLink(modalName.textContent, modalSizeSelect.value, quantityInput.value);
+        updateOrderPreview();
+        updateWhatsAppLink();
       });
-
       quantityInput.addEventListener('input', () => {
         if (quantityInput.value < 1) quantityInput.value = 1;
-        updateCartLink(modalName.textContent, modalSizeSelect.value, quantityInput.value);
+        updateOrderPreview();
+        updateWhatsAppLink();
       });
 
-      function updateCartLink(productName, size, quantity) {
-        addToCartBtn.href = `https://wa.me/233558377502?text=I'm%20interested%20in%20the%20${encodeURIComponent(productName)}%20(Size:%20${encodeURIComponent(size)},%20Quantity:%20${quantity})`;
-      }
+      orderForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (orderForm.checkValidity()) {
+          updateWhatsAppLink();
+          window.open(addToCartBtn.href, '_blank');
+        } else {
+          orderForm.classList.add('was-validated');
+        }
+      });
     });
   </script>
 </body>
