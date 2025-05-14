@@ -107,3 +107,30 @@ body {
 .whatsapp-btn:hover {
   background-color: #20b858;
 }
+/* Modal Styling */
+.modal-content {
+  border-radius: 15px;
+}
+
+.modal-body img {
+  border-radius: 10px;
+  max-height: 400px;
+  object-fit: cover;
+}
+
+.quantity-selector .input-group {
+  max-width: 150px;
+}
+
+/* Ensure responsiveness for modal */
+@media (max-width: 576px) {
+  .modal-dialog {
+    margin: 1rem;
+  }
+  .modal-body img {
+    max-height: 300px;
+  }
+  .quantity-selector .input-group {
+    max-width: 120px;
+  }
+}
